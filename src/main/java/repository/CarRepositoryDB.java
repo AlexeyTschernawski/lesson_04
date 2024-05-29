@@ -34,7 +34,7 @@ public class CarRepositoryDB implements CarRepository{
         try (Connection connection = getConnection()){
             String query = String.format(
                     "INSERT INTO car (brand, price, year) VALUES ('%s', %s, %d);",
-            car.getBrand(), car.getPrice(), car.getYear());
+                    car.getBrand(), car.getPrice(), car.getYear());
 
             Statement statement = connection.createStatement();
             statement.execute(query, Statement.RETURN_GENERATED_KEYS);
@@ -74,12 +74,12 @@ public class CarRepositoryDB implements CarRepository{
 
     @Override
     public List<Car> getAll() {
-        try (Connection connection = getConnection()){
+        try (Connection connection = getConnection()) {
 
         } catch (Exception e) {
-            throw  new RuntimeException(e);
+            throw new RuntimeException(e);
         }
-        return List.of();
+        return null;
     }
 
     @Override
