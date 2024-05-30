@@ -6,6 +6,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import repository.CarRepositoryDB;
+import repository.CarRepositoryHibernate;
 import repository.CarRepositoryMap;
 import service.CarService;
 import service.CarServiceImpl;
@@ -16,7 +18,9 @@ import java.util.Map;
 
 public class CarServlet extends HttpServlet {
 
-    private CarService service = new CarServiceImpl(new CarRepositoryMap());
+    //private CarService service = new CarServiceImpl(new CarRepositoryMap());
+    //private CarService service = new CarServiceImpl(new CarRepositoryDB());
+    private CarService service = new CarServiceImpl(new CarRepositoryHibernate());
 
     // Получение автомобиля или всех автомобилей:
     // GET http://localhost:8080/cars?id=3 - один авто
